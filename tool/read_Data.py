@@ -28,7 +28,7 @@ def handle_im(im, bboxes):
     im = tf.image.resize_images(im, (nh, nw))
     bboxes = tf.concat([bboxes[..., :4] * scale, bboxes[..., 4:]], axis=-1)
 
-    #im = tf.pad(im, [[0, 0], [0, config.read_img_size - nh], [0, config.read_img_size - nw], [0, 0]], constant_values=127)
+    im = tf.pad(im, [[0, 0], [0, config.read_img_size - nh], [0, config.read_img_size - nw], [0, 0]], constant_values=127)
 
     im = im[0]
     return im, bboxes
